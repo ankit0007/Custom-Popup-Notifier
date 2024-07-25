@@ -6,6 +6,7 @@
  * Author: YourName
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: custom-popup-notifier
  */
 
 // Prevent direct access
@@ -23,8 +24,8 @@ require_once CUSTOM_POPUP_PLUGIN_DIR . 'includes/class-custom-popup-frontend.php
 
 // Initialize the plugin
 function custom_popup_initialize() {
-    $admin = new Custom_Popup_Admin();
-    $frontend = new Custom_Popup_Frontend();
+    new Custom_Popup_Admin();
+    new Custom_Popup_Frontend();
 }
 add_action('plugins_loaded', 'custom_popup_initialize');
 ?>

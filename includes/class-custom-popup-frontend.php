@@ -12,9 +12,7 @@ if (!class_exists('Custom_Popup_Frontend')) {
             wp_enqueue_script('jquery');
             wp_enqueue_script('custom-popup-frontend', plugins_url('../assets/js/frontend.js', __FILE__), array('jquery'), false, true);
             wp_enqueue_style('custom-popup-frontend', plugins_url('../assets/css/frontend.css', __FILE__), array(), CUSTOM_POPUP_VERSION);
-            // Enqueue Tailwind CSS
             wp_enqueue_style('tailwindcss', 'https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css', array(), '2.2.19');
-            // Enqueue Animate.css
             wp_enqueue_style('animate-css', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css', array(), '4.1.1');
         }
 
@@ -25,7 +23,7 @@ if (!class_exists('Custom_Popup_Frontend')) {
             $bg_color = esc_attr(get_option('custom_popup_bg_color', '#f8f8f8'));
             $font_color = esc_attr(get_option('custom_popup_font_color', 'rgb(37, 39, 43)'));
             $font_size = esc_attr(get_option('custom_popup_font_size', '1'));
-            $content = wp_kses_post(get_option('custom_popup_content', 'Default popup content'));
+            $content = wp_kses_post(get_option('custom_popup_content', __('Default popup content', 'custom-popup-notifier')));
             $open_animation = esc_attr(get_option('custom_popup_open_animation', 'bounce'));
             $close_animation = esc_attr(get_option('custom_popup_close_animation', 'fadeOut'));
             ?>
@@ -43,8 +41,8 @@ if (!class_exists('Custom_Popup_Frontend')) {
                         $('#custom-popup-content').removeClass('animate__<?php echo $open_animation; ?>').addClass('animate__<?php echo $close_animation; ?>');
                         setTimeout(function() {
                             $('#custom-popup').fadeOut();
-                            $('body').css('overflow', 'auto'); // Enable scrolling
-                        }, 1000); // Adjust the timing if necessary
+                            $('body').css('overflow', 'auto');
+                        }, 1000);
                     });
                 });
             </script>
@@ -54,14 +52,14 @@ if (!class_exists('Custom_Popup_Frontend')) {
         public function apply_custom_css() {
             $custom_css = get_option('custom_popup_custom_css', '');
             if (!empty($custom_css)) {
-                echo '<style>' . $custom_css . '</style>';
+                echo '<style>' . esc_html($custom_css) . '</style>';
             }
         }
 
         public function apply_custom_js() {
             $custom_js = get_option('custom_popup_custom_js', '');
             if (!empty($custom_js)) {
-                echo '<script>' . $custom_js . '</script>';
+                echo '<script>' . esc_html($custom_js) . '</script>';
             }
         }
     }

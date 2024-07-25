@@ -7,7 +7,6 @@ jQuery(document).ready(function($) {
         $($(this).attr('href')).show();
     });
 
-    // Initialize CodeMirror
     $('.codemirror-textarea').each(function() {
         var editor = CodeMirror.fromTextArea(this, {
             lineNumbers: true,
@@ -18,6 +17,5 @@ jQuery(document).ready(function($) {
         });
     });
 
-    // Initialize color picker
     $('.custom-popup-color-field').wpColorPicker();
 });
