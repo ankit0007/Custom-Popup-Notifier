@@ -1,12 +1,17 @@
 <?php
 /**
- * Plugin Name: Custom Popup Notifier
- * Description: Display customizable popups on your WordPress site with animations, colors, and custom CSS/JS.
- * Version: 1.0.0
- * Author: YourName
- * License: GPLv2 or later
- * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: custom-popup-notifier
+ * Plugin Name:       Custom Popup Notifier
+ * Plugin URI:        https://seomasterteam.com/plugins/custom-popup-notifier/
+ * Description:       Display customizable popups on your WordPress site with animations, colors, and custom CSS/JS.
+ * Version:           1.0.0
+ * Requires at least: 5.0
+ * Requires PHP:      7.0
+ * Author:            Team seomasterteam
+ * Author URI:        https://seomasterteam.com
+ * License:           GPLv2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       custom-popup-notifier
+ * Domain Path:       /languages
  */
 
 // Prevent direct access
